@@ -1,0 +1,45 @@
+<ion-menu side="left" [content]="content">
+  <ion-content class="menu">
+    <ion-list>
+      <ion-item no-lines menuClose class="item-profile">
+        <div class="item-avatar">
+          <img [src]="user.ImageURL">
+          <div class="item-text-center item-text-wrap">{{user.Name}}</div>
+        </div>
+      </ion-item>
+      <ion-item no-lines menuClose (click)="openHome()">
+        Home
+      </ion-item>
+      <ion-item no-lines menuClose (click)="showEventPage()" *ngIf="user.isAdmin">
+        Create Event
+      </ion-item>
+      <ion-item no-lines menuClose (click)="savetheDate()" *ngIf="user.Status == 20">
+        Save the Date
+      </ion-item>
+      <ion-item no-lines menuClose (click)="showGallery()" *ngIf="user.Status == 20">
+        Gallery
+      </ion-item>
+      <ion-item no-lines menuClose (click)="takemetovenue()" *ngIf="user.Status == 20">
+        Take Me To Venue
+      </ion-item>
+      <ion-item no-lines menuClose (click)="openAllUsers()">
+        Users
+      </ion-item>
+      <ion-item no-lines menuClose (click)="openPendingRequest()" *ngIf="user.isAdmin">
+        Pending Request
+      </ion-item>
+      <ion-item no-lines menuClose (click)="openContactUs()">
+        RSVP
+      </ion-item>
+      <!-- <ion-item no-lines menuClose (click)="openSamplePage()">
+        Map
+      </ion-item> -->
+    </ion-list>
+    <!-- <div class="logoutBtn"><button ion-button full color="secondary" (click)="Logout()" position="bottom">Logout</button></div> -->
+  </ion-content>
+  <ion-footer class="logoutBtn" no-padding style="margin:0rem 0rem!Important;">
+    <button ion-button block color="secondary" (click)="Logout()">Logout</button>
+  </ion-footer>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar transparent color="primary">
+    <ion-buttons start left>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>RSVP</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="contactus">
+  <ion-card class="cardHome" padding *ngFor="let data of htmlString">
+    <div [innerHTML]="'<p>' + data.HtmlText + '</p>'">
+    </div>
+    <button ion-button clear (click)="launchDialer(data.ContactNumber)" clear>{{data.ContactNumber}}</button>
+  </ion-card>
+</ion-content>
